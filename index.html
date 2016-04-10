@@ -18,7 +18,12 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body ng-controller="mainCtrl">
- 
+ <H2>Hello, we are The Cakewalkers:</H2>   
+ <div >
+     <ul ng-repeat="person in data">
+         <li>{{person.name}}</li>
+     </ul>
+ </div>
 
  <div>
      <h3>Ny Indikator</h3>
@@ -73,43 +78,16 @@
         <label for="poeng">Poeng</label>
         <input type="text" name="poeng" ng-model="activity.poeng">
         <br>
-        <label for="kommentar">Kommentarer</label>
+        <label for="kommentar"></label>
         <input type="text" ng-model="activity.comment">
         <br>
 
         <label for="registrering">Registrering</label>
-        <div name="registrering">
-             <div >
-            <button ng-click="reg_bilde=!reg_bilde">Bilde</button>
-            <button ng-click="reg_janei=!reg_janei">Ja/Nei</button>
-            <button ng-click="reg_n_av_n=!reg_n_av_n">n av N</button>
-            <button ng-click="reg_1_av_n=!reg_1_av_n">1 av n</button>
-            <button ng-click="reg_fritekst=!reg_fritekst">fritekst</button>
-            
-            <div ng-show="reg_bilde">
-                bilde stuff
-            </div>
-             <div ng-show="reg_janei">
-                <label for="janeiInput">Tekst</label>
-                <input type="text" name="janeiInput">
-                <button>legg til</button>
-            </div>
-             <div ng-show="reg_n_av_n">
-                <ul ng-repeat="o in currentCheckbox">
-                    <li>{{o.tekst}}</li>
-                </ul>
-                <label for="newcheck">Legg til ny...</label>
-                <input type="text" ng-model="currentCheckbox.text">
-                <button ng-click="addCheckboxAlternative()">add</button>
-            </div>
-             <div ng-show="reg_1_av_n">
-                1 av n stuff
-            </div>
-             <div ng-show="reg_fritekst">
-                fritekst stuff
-            </div>
-
-        </div>
+        <div >
+            <button>Bilde</button>
+            <button>Ja/Nei</button>
+            <button>n av N</button>
+            <button>1 av n</button>
         </div>
 
         <label for="merknader">Merknader</label>

@@ -2,15 +2,12 @@ var difiTestWeb = angular.module('difiTestWeb',[]);
 
 difiTestWeb.controller('mainCtrl', function($scope){
 
-    $scope.data=[
-    {"name":"Roger"},
-    {"name":"Stian"},
-    {"name":"Thomas"},
-    {"name":"Eivind"}
-    ];
+    
     $scope.activity={};
     $scope.indikator={};
     $scope.indikator.aktiviteter = [];
+    $scope.currentCheckbox={};
+    $scope.activity.inputs.checkboxes=[];
     $scope.addActivity = function()
     {
         console.log("test")
@@ -21,3 +18,4 @@ difiTestWeb.controller('mainCtrl', function($scope){
     }
 
 });
+
