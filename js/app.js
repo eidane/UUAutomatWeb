@@ -1,0 +1,1 @@
+angular.module('difiTestWeb', ['difiTestWeb.controllers', 'difiTestWeb.services']);

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="difiTestWeb">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Test App</title>
+
+    <script type="text/javascript" src="lib/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js">
+    </script>
+
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+
+     <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body ng-controller="mainCtrl">
+ <H2>Hello, we are The Cakewalkers:</H2>   
+ <div >
+     <ul ng-repeat="person in data">
+         <li>{{person.name}}</li>
+     </ul>
+ </div>
+
+ <div>
+     <h3>Ny Indikator</h3>
+     <label for="IndName">Navn:</label>
+     <input type="text" name="IndName"></input>
+     <h4>Standarder:</h4>
+     <ul ng-repeat="standard in standards">
+         <li>
+             {{standard.name}}
+             <button>endre</button>
+             <button>slett</button>
+         </li>
+     </ul>
+     <button>Legg til ny standard...</button>
+    <div>
+        <h4>Avhengig av...</h4>
+        <label for="IndSearch">Søk:</label>
+        <input></input>
+        <ul ng-repeat="indikator in indikatorer">
+            <li>
+            <input type="checkbox"></input>
+            {{indikator.name}}
+                <ul ng-repeat="aktivitet in indikator.aktiviteter">
+                    <li>
+                        <input type="checkbox">.</input>
+                        {{aktivitet.name}}
+                        <select>
+                            <option>=</option>
+                            <option>!=</option>
+                            <option>something</option>
+                        </select>
+                        <input type="text" placeholder="..."></input>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>
+            Aktiviteter:
+        </h3>
+        <button ng-click="new_activity = ! new_activity">Ny Aktivitet...</button>
+        <div ng-show="new_activity">
+        <h4>Ny aktivitet</h4>
+        <label for="activity_text">Aktivitetstekst</label>
+        
+        <input type="text" name="activity_text" ng-model="activity.text"></input>
+        <br>
+        <label for="bilde">Bilde:</label><button name="bilde">last opp..</button>
+        <br>
+        <label for="poeng">Poeng</label>
+        <input type="text" name="poeng" ng-model="activity.poeng">
+        <br>
+        <label for="kommentar"></label>
+        <input type="text" ng-model="activity.comment">
+        <br>
+
+        <label for="registrering">Registrering</label>
+        <div name="registrering">
+            List...
+        </div>
+
+        <label for="merknader">Merknader</label>
+        <input type="text" ng-model="activity.merknader"></input>
+        
+        
+
+        <button ng-click="addActivity()">Legg til</button>
+
+        </div>
+
+        <ul ng-repeat="obj in indikator.aktiviteter">
+            <li>{{obj.text}}
+                merknader: {{obj.merknader}}
+                <button>endre</button>
+            <button>slett</button>
+            </li>
+            
+        </ul>
+
+    </div>
+    
+ </div>
+</body>
+</html>
